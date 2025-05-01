@@ -167,6 +167,7 @@
             transform: translateX(26px);
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 </head>
 <body class="flex overflow-hidden">
     <!-- Sidebar -->
@@ -416,8 +417,7 @@
                         </select>
                     </div>
                     <div class="chart-container">
-                        <!-- Mock Chart -->
-                        <img src="/api/placeholder/400/300" alt="Detection Trends Chart" class="w-full h-full object-contain">
+                        <canvas id="detectionTrendsChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -769,6 +769,27 @@
                                 </tr>
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs font-medium">High</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        Mar 22, 2025 10:24 AM
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        SM Megamall, Mandaluyong
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        Evil Twin Attack
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-medium">Investigating</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-3">Details</a>
+                                        <a href="#" class="text-red-600 hover:text-red-900">Block</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
                                         <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-medium">Medium</span>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -785,6 +806,27 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm">
                                         <a href="#" class="text-blue-600 hover:text-blue-900">View Report</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs font-medium">High</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        Mar 22, 2025 10:24 AM
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        SM Megamall, Mandaluyong
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        Evil Twin Attack
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-medium">Investigating</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-3">Details</a>
+                                        <a href="#" class="text-red-600 hover:text-red-900">Block</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -809,6 +851,27 @@
                                 </tr>
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs font-medium">High</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        Mar 22, 2025 10:24 AM
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        SM Megamall, Mandaluyong
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        Evil Twin Attack
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-medium">Investigating</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-3">Details</a>
+                                        <a href="#" class="text-red-600 hover:text-red-900">Block</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
                                         <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-medium">Medium</span>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -826,6 +889,69 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm">
                                         <a href="#" class="text-blue-600 hover:text-blue-900 mr-3">Details</a>
                                         <a href="#" class="text-yellow-600 hover:text-yellow-900">Investigate</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs font-medium">High</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        Mar 22, 2025 10:24 AM
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        SM Megamall, Mandaluyong
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        Evil Twin Attack
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-medium">Investigating</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-3">Details</a>
+                                        <a href="#" class="text-red-600 hover:text-red-900">Block</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-medium">Medium</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        Mar 21, 2025 1:15 PM
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        Sta. Rosa Business Park
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        Suspicious SSID Pattern
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs font-medium">Unresolved</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-3">Details</a>
+                                        <a href="#" class="text-yellow-600 hover:text-yellow-900">Investigate</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs font-medium">High</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        Mar 22, 2025 10:24 AM
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        SM Megamall, Mandaluyong
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        Evil Twin Attack
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-medium">Investigating</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-3">Details</a>
+                                        <a href="#" class="text-red-600 hover:text-red-900">Block</a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -952,6 +1078,194 @@
         // Call on load
         document.addEventListener('DOMContentLoaded', () => {
             renderMockCharts();
+        });
+    </script>
+    <script>
+        // Detection Trends Chart functionality
+        function initDetectionTrendsChart() {
+            const ctx = document.getElementById('detectionTrendsChart');
+            if (!ctx) return; // Exit if the canvas doesn't exist
+            
+            // Sample data for different time ranges
+            const chartData = {
+                // Last 7 days data
+                '7': {
+                    labels: ['Mar 15', 'Mar 16', 'Mar 17', 'Mar 18', 'Mar 19', 'Mar 20', 'Mar 21'],
+                    datasets: [
+                        {
+                            label: 'Verified Networks',
+                            data: [12, 15, 10, 8, 14, 18, 11],
+                            borderColor: '#10b981',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'Suspicious Activities',
+                            data: [3, 1, 4, 2, 5, 3, 7],
+                            borderColor: '#ef4444',
+                            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'Pending Verification',
+                            data: [5, 7, 3, 9, 4, 6, 8],
+                            borderColor: '#f59e0b',
+                            backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }
+                    ]
+                },
+                // Last 30 days data
+                '30': {
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                    datasets: [
+                        {
+                            label: 'Verified Networks',
+                            data: [42, 55, 63, 48],
+                            borderColor: '#10b981',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'Suspicious Activities',
+                            data: [10, 15, 8, 12],
+                            borderColor: '#ef4444',
+                            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'Pending Verification',
+                            data: [18, 22, 25, 20],
+                            borderColor: '#f59e0b',
+                            backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }
+                    ]
+                },
+                // Last 90 days data
+                '90': {
+                    labels: ['January', 'February', 'March'],
+                    datasets: [
+                        {
+                            label: 'Verified Networks',
+                            data: [180, 220, 195],
+                            borderColor: '#10b981',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'Suspicious Activities',
+                            data: [45, 38, 52],
+                            borderColor: '#ef4444',
+                            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'Pending Verification',
+                            data: [85, 90, 75],
+                            borderColor: '#f59e0b',
+                            backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }
+                    ]
+                }
+            };
+    
+            // Create chart instance
+            let detectionChart = new Chart(ctx, {
+                type: 'line',
+                data: chartData['7'], // Default to 7-day view
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 20
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            backgroundColor: 'rgba(30, 41, 59, 0.9)',
+                            titleColor: '#ffffff',
+                            bodyColor: '#ffffff',
+                            borderColor: 'rgba(30, 41, 59, 0.2)',
+                            borderWidth: 1,
+                            padding: 12,
+                            displayColors: true
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            },
+                            ticks: {
+                                precision: 0
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        }
+                    },
+                    interaction: {
+                        mode: 'nearest',
+                        axis: 'x',
+                        intersect: false
+                    },
+                    elements: {
+                        point: {
+                            radius: 3,
+                            hoverRadius: 5
+                        }
+                    }
+                }
+            });
+    
+            // Find the dropdown and add an event listener
+            const timeRangeSelect = document.querySelector('select');
+            if (timeRangeSelect) {
+                timeRangeSelect.addEventListener('change', function() {
+                    let selectedRange = '7'; // Default
+                    
+                    // Determine which range was selected based on the option text
+                    if (this.options[this.selectedIndex].text.includes('30')) {
+                        selectedRange = '30';
+                    } else if (this.options[this.selectedIndex].text.includes('90')) {
+                        selectedRange = '90';
+                    }
+                    
+                    // Update chart data
+                    detectionChart.data = chartData[selectedRange];
+                    detectionChart.update();
+                });
+            }
+        }
+    
+        // Add to the existing document ready function
+        document.addEventListener('DOMContentLoaded', () => {
+            // Keep the existing renderMockCharts call
+            if (typeof renderMockCharts === 'function') {
+                renderMockCharts();
+            }
+            
+            // Initialize our chart
+            initDetectionTrendsChart();
         });
     </script>
 </body>
